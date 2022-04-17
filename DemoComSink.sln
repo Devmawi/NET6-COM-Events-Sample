@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoComSink", "DemoComSink\DemoComSink.csproj", "{B49CDAD6-791E-4114-8F2C-67BE26197F1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoComSink", "DemoComSink\DemoComSink.csproj", "{B49CDAD6-791E-4114-8F2C-67BE26197F1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSink.TestConsole", "DemoSink.TestConsole\DemoSink.TestConsole.csproj", "{7C74EB30-8D71-44F9-B5F6-52B0F3B75DDB}"
 EndProject

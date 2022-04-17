@@ -15,8 +15,8 @@ namespace DemoSink.TestConsole
             server.Message = "Ulf";
             server.Init();
             server.RaiseClickEvent();
-            
-            
+            server.Click -= Server_Click;
+
             //SHDocVw.InternetExplorer ie = new SHDocVw.InternetExplorer();
         }
 

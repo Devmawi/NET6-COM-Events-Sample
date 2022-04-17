@@ -126,7 +126,50 @@ namespace DemoSink.TestConsole
            // [MethodImpl(MethodImplOptions.InternalCall)]
             remove
             {
-          
+                bool lockTaken = default(bool);
+                try
+                {
+                    Monitor.Enter(this, ref lockTaken);
+                    if (m_aEventSinkHelpers == null)
+                    {
+                        return;
+                    }
+
+                    int count = m_aEventSinkHelpers.Count;
+                    int num = 0;
+                    if (0 >= count)
+                    {
+                        return;
+                    }
+
+                    do
+                    {
+                        IServerEvents_SinkHelper dWebBrowserEvents2_SinkHelper = (IServerEvents_SinkHelper)m_aEventSinkHelpers[num];
+                        if (dWebBrowserEvents2_SinkHelper.m_ClickDelegate != null && ((dWebBrowserEvents2_SinkHelper.m_ClickDelegate.Equals(value) ? 1u : 0u) & 0xFFu) != 0)
+                        {
+                            m_aEventSinkHelpers.RemoveAt(num);
+                            m_ConnectionPoint.Unadvise(dWebBrowserEvents2_SinkHelper.m_dwCookie);
+                            if (count <= 1)
+                            {
+                                Marshal.ReleaseComObject(m_ConnectionPoint);
+                                m_ConnectionPoint = null;
+                                m_aEventSinkHelpers = null;
+                            }
+
+                            break;
+                        }
+
+                        num++;
+                    }
+                    while (num < count);
+                }
+                finally
+                {
+                    if (lockTaken)
+                    {
+                        Monitor.Exit(this);
+                    }
+                }
             }
         }
 

@@ -59,7 +59,7 @@ namespace DemoComSink
         public event ClickEventHandler Click
         {
             add { Console.WriteLine("_click += value"); _click += value; }
-            remove { Console.WriteLine("_click += value"); _click += value; }
+            remove { Console.WriteLine("_click -= value"); _click -= value; }
         }
     }
 }
