@@ -6,7 +6,6 @@ using System.Text;
 
 namespace DemoComSink.ComContracts.Clients
 {
-    public delegate void ServerEvents_ClickEventHandler(string message);
 
     [ComEventInterface(typeof(ServerEvents), typeof(ServerEvents_EventProvider))]
     [ComVisible(false)]

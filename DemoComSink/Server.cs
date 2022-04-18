@@ -1,4 +1,5 @@
 ﻿using DemoComSink.ComContracts;
+using DemoComSink.ComContracts.Clients;
 using DemoComSink.ComContracts.Servers;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace DemoComSink
     [Guid(ContractGuids.ServerClassId)]
     [ClassInterface(ClassInterfaceType.None)]
     [ComSourceInterfaces(typeof(ServerEvents))]
-    public class Server : IServer
+    public class Server : IServer, ServerEvents_Event
     {
         public string Message { get; set; } = ".NET 6 Server";
 
@@ -29,13 +30,13 @@ namespace DemoComSink
             _click?.Invoke("Hello from C#!");
         }
 
-        public void AddClick2(ClickEventHandler click)
+        public void AddClick2(ServerEvents_ClickEventHandler click)
         {
             Console.WriteLine("Added ...");
         }
 
-        private event ClickEventHandler _click;
-        public event ClickEventHandler Click
+        private event ServerEvents_ClickEventHandler _click;
+        public event ServerEvents_ClickEventHandler Click
         {
             add { Console.WriteLine("_click += value"); _click += value; }
             remove { Console.WriteLine("_click -= value"); _click -= value; }
