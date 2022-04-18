@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoComSink.ComContracts.Sink;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace DemoSink.TestConsole
             server.RaiseClickEvent();
             server.Click -= Server_Click;
 
-            //SHDocVw.InternetExplorer ie = new SHDocVw.InternetExplorer();
+            Console.ReadKey();
+            SHDocVw.InternetExplorer ie = new SHDocVw.InternetExplorer();
         }
 
         private static void Server_Click(string message)
