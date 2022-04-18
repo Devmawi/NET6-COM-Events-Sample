@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace DemoComSink.ComContracts.Source
+namespace DemoComSink.ComContracts.Servers
 {
     [ComVisible(true)]
-    [Guid(ContractGuids.ServerEventsId)]
+    [Guid(ContractGuids.ServerId)]
     [InterfaceType(ComInterfaceType.InterfaceIsDual)]
-    public interface ServerEvents
+    public interface IServer
     {
-        void Click(string message);
+        void Init();
+        string Message { get; set; }
+        void RaiseClickEvent();
     }
 }

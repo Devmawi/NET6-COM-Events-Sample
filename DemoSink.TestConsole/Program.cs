@@ -1,4 +1,4 @@
-﻿using DemoComSink.ComContracts.Sink;
+﻿using DemoComSink.ComContracts.Clients;
 using System;
 using System.Collections.Generic;
 using System.Linq;

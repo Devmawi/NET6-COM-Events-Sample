@@ -14,4 +14,7 @@
 		<Message Importance="High" Text="Register:%0a    regsvr32.exe &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />
 		<Message Importance="High" Text="Unregister:%0a    regsvr32.exe /u &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />
 	</Target>
+	<ItemGroup>
+	  <ProjectReference Include="..\DemoComSink.ComContracts\DemoComSink.ComContracts.csproj" />
+	</ItemGroup>
 </Project>

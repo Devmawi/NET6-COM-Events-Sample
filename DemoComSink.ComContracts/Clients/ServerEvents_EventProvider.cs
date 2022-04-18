@@ -6,7 +6,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
 
-namespace DemoComSink.ComContracts.Sink
+namespace DemoComSink.ComContracts.Clients
 {
     public class ServerEvents_EventProvider : ServerEvents_Event
     {
@@ -32,7 +32,7 @@ namespace DemoComSink.ComContracts.Sink
             add
             {
 
-                bool lockTaken = default(bool);
+                bool lockTaken = default;
                 try
                 {
                     Monitor.Enter(this, ref lockTaken);
@@ -57,7 +57,7 @@ namespace DemoComSink.ComContracts.Sink
             }
             remove
             {
-                bool lockTaken = default(bool);
+                bool lockTaken = default;
                 try
                 {
                     Monitor.Enter(this, ref lockTaken);

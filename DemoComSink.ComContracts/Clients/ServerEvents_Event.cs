@@ -1,10 +1,10 @@
-﻿using DemoComSink.ComContracts.Source;
+﻿using DemoComSink.ComContracts.Servers;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace DemoComSink.ComContracts.Sink
+namespace DemoComSink.ComContracts.Clients
 {
     public delegate void ServerEvents_ClickEventHandler(string message);
 

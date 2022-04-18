@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DemoComSink.ComContracts;
+using DemoComSink.ComContracts.Servers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,35 +11,12 @@ using System.Threading.Tasks;
 namespace DemoComSink
 {
     [ComVisible(true)]
-    [Guid(ContractGuids.ServerId)]
-    [InterfaceType(ComInterfaceType.InterfaceIsDual)]
-    public interface IServer
-    {
-        void Init();
-        string Message { get; set; }
-
-        public void RaiseClickEvent();
-    }
-
-    [ComVisible(true)]
-    [Guid(ContractGuids.ServerEventsId)]
-    [InterfaceType(ComInterfaceType.InterfaceIsDual)]
-    public interface IServerEvents
-    {
-        void Click(string message);
-    }
-
-    [ComVisible(true)]
-    [Guid("2e833078-8cf8-4478-a0c0-349b0008656f")]
-    public delegate void ClickEventHandler(string message);
-
-    [ComVisible(true)]
     [Guid(ContractGuids.ServerClassId)]
-    [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComSourceInterfaces(typeof(IServerEvents))]
+    [ClassInterface(ClassInterfaceType.None)]
+    [ComSourceInterfaces(typeof(ServerEvents))]
     public class Server : IServer
     {
-        public string Message { get; set; }
+        public string Message { get; set; } = ".NET 6 Server";
 
         public void Init()
         {
